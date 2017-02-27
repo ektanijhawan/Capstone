@@ -22,12 +22,11 @@ public class WidgetProvider extends AppWidgetProvider {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction().equals(ACTION)) {
-            String symbol = intent.getStringExtra("symbol");
             Intent detail_intent = new Intent(context, MainActivity.class);
-            detail_intent.putExtra("symbol", symbol);
-            detail_intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(detail_intent);
         }
+        super.onReceive(context, intent);
+
     }
 
     @Override
