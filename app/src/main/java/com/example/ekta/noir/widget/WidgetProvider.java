@@ -29,6 +29,7 @@ public class WidgetProvider extends AppWidgetProvider {
 
     }
 
+
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // update each of the app widgets with the remote adapter
