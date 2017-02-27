@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "691300221983",
+    "firebase_url": "https://noir-d2d30.firebaseio.com",
+    "project_id": "noir-d2d30",
+    "storage_bucket": "noir-d2d30.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691300221983:android:71306a649520dcb2",
+        "android_client_info": {
+          "package_name": "com.example.ekta.noir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691300221983-6bjqatvgij65b1gbod13nb44utaijcab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ekta.noir",
+            "certificate_hash": "0466c07b48bd49029ff282069052ba6edca24b93"
+          }
+        },
+        {
+          "client_id": "691300221983-k4ki9ohf1rhrfns59l5cads17rakc6t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQpdS33ZiBKhCavM10PbE_TDmyP61pmJM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691300221983-k4ki9ohf1rhrfns59l5cads17rakc6t7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
