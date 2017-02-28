@@ -49,14 +49,15 @@ public class WidgetService extends RemoteViewsService {
 
         @Override
         public void onCreate() {
-
+unsplashList= new ArrayList<>();
            getPhotos();
 
         }
         private void getPhotos(){
 
             ArrayList<UnsplashData> list = new ArrayList<>(UnsplashProviderMethods.getPhotoList(getApplicationContext()));
-            unsplashList.clear();
+            //
+            // unsplashList.clear();
             for( UnsplashData photo : list){
                 unsplashList.add(photo);
             }
@@ -87,8 +88,8 @@ public class WidgetService extends RemoteViewsService {
         @Override
         public RemoteViews getViewAt(int position) {
             RemoteViews remoteViews = new RemoteViews(this.context.getPackageName(), R.layout.widget_item);
-
-            if (this.cursor.moveToPosition(position)) {
+                              Log.d("listsize",String.valueOf(unsplashList.size()));
+           // if (this.cursor.moveToPosition(position)) {
                 Uri imageUri = Uri.parse(unsplashList.get(position).getUrlRegular());
                 remoteViews.setImageViewUri(R.id.iv_widget,imageUri);
 
@@ -102,7 +103,7 @@ public class WidgetService extends RemoteViewsService {
                 fillInIntent.putExtras(extras);
                 remoteViews.setOnClickFillInIntent(R.id.ll, fillInIntent);
 
-            }
+         //   }
 
 
 
@@ -123,7 +124,9 @@ public class WidgetService extends RemoteViewsService {
         @Override
         public long getItemId(int position) {
 
-            return this.cursor.getInt(0);
+            return position;
+
+            //this.cursor.getInt(0);
         }
 
         @Override
