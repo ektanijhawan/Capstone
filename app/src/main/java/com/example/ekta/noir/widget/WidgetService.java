@@ -54,6 +54,7 @@ public class WidgetService extends RemoteViewsService {
 
         @Override
         public void onCreate() {
+            Log.d("onCreateWidgetService","called");
             unsplashList = new ArrayList<>();
             getPhotos();
 
