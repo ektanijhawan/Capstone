@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,9 @@ import com.example.ekta.noir.R;
 import com.example.ekta.noir.activities.BaseActivity;
 import com.example.ekta.noir.model.UnsplashData;
 import com.example.ekta.noir.model.UnsplashProviderMethods;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -99,14 +102,29 @@ public class WidgetService extends RemoteViewsService {
         public RemoteViews getViewAt(int position) {
 
 
-            RemoteViews remoteViews = new RemoteViews(this.context.getPackageName(), R.layout.widget_item);
-            appWidgetTarget = new AppWidgetTarget( context, remoteViews, R.id.iv_widget );
+            String imageUrl = "";
+            imageUrl = unsplashList.get(position).getUrlRegular();
+//            if(cursor.moveToPosition(position)) {
+//                imageUrl = cursor.getString(cursor.getColumnIndex(IMAGE_URLS_REGULAR));
+//            }
 
-            Glide
-                    .with( context.getApplicationContext() ) // safer!
-                    .load(unsplashList.get(position).getUrlRegular())
-                    .asBitmap()
-                    .into( appWidgetTarget );
+            RemoteViews remoteViews = new RemoteViews(this.context.getPackageName(), R.layout.widget_item);
+//            appWidgetTarget = new AppWidgetTarget( context, remoteViews, R.id.iv_widget );
+
+//            Glide.with( context.getApplicationContext() ) // safer!
+//                    .load(unsplashList.get(position).getUrlRegular())
+//                    .asBitmap()
+//                    .into( appWidgetTarget );
+
+            Bitmap bit = null;
+            try {
+                bit = Picasso.with(this.context)
+                        .load(imageUrl)
+                        .get();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            remoteViews.setImageViewBitmap(R.id.iv_widget, bit);
 
             Log.d("listsize", String.valueOf(unsplashList.size()));
             // if (this.cursor.moveToPosition(position)) {
@@ -128,8 +146,8 @@ public class WidgetService extends RemoteViewsService {
             //   }
 
             pushWidgetUpdate(context, remoteViews);
-
             return remoteViews;
+
         }
 
         public  void pushWidgetUpdate(Context context, RemoteViews rv) {
