@@ -39,42 +39,10 @@ public class VolleySingleton {
                 cache.put(url,bitmap);
             }
         });
-//        mImageLoader = new ImageLoader(mRequestQueue,
-//                new ImageLoader.ImageCache() {
-//                    private final LruCache<String, Bitmap>
-//                            cache = new LruCache<String, Bitmap>(20);
-//
-//                    @Override
-//                    public Bitmap getBitmap(String url) {
-//                        return cache.get(url);
-//                    }
-//
-//                    @Override
-//                    public void putBitmap(String url, Bitmap bitmap) {
-//                        cache.put(url, bitmap);
-//                    }
-//                });
+
     }
 
-    //    private VolleySingleton(Context context){
-//        this.context = context;
-//        mRequestQueue = Volley.newRequestQueue(MyApplication.getAppContext());
-//        mImageLoader = new ImageLoader(mRequestQueue,
-//                new ImageLoader.ImageCache() {
-//                    private final LruCache<String, Bitmap>
-//                            cache = new LruCache<String, Bitmap>(20);
-//
-//                    @Override
-//                    public Bitmap getBitmap(String url) {
-//                        return cache.get(url);
-//                    }
-//
-//                    @Override
-//                    public void putBitmap(String url, Bitmap bitmap) {
-//                        cache.put(url, bitmap);
-//                    }
-//                });
-//    }
+
     public static VolleySingleton getsInstance(){
         if(sInstance == null){
             sInstance = new VolleySingleton();
@@ -86,22 +54,6 @@ public class VolleySingleton {
         return mRequestQueue;
     }
 
-    //    public static synchronized VolleySingleton getInstance(Context context) {
-//        if (sInstance == null) {
-//            sInstance = new VolleySingleton();
-//        }
-//        return sInstance;
-//    }
-//
-//    public RequestQueue getRequestQueue() {
-//        if (mRequestQueue == null) {
-//            Cache cache = new DiskBasedCache(context.getCacheDir(), 10 * 1024 * 1024);
-//            Network network = new BasicNetwork(new HurlStack());
-//            mRequestQueue = new RequestQueue(cache, network);
-//            mRequestQueue.start();
-//        }
-//        return mRequestQueue;
-//    }
     public ImageLoader getImageLoader(){
         return mImageLoader;
     }

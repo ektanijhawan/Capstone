@@ -124,7 +124,15 @@ public class WidgetService extends RemoteViewsService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            remoteViews.setImageViewBitmap(R.id.iv_widget, bit);
+           // remoteViews.setImageViewBitmap(R.id.iv_widget, bit);
+            Uri imageUri = Uri.parse(unsplashList.get(position).getUrlRegular());
+            //remoteViews.setImageViewUri(R.id.iv_widget,imageUri);
+            try {
+                Bitmap b = Picasso.with(context).load(imageUri).get();
+                remoteViews.setImageViewBitmap(R.id.iv_widget, b);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             Log.d("listsize", String.valueOf(unsplashList.size()));
             // if (this.cursor.moveToPosition(position)) {
@@ -145,7 +153,7 @@ public class WidgetService extends RemoteViewsService {
 
             //   }
 
-            pushWidgetUpdate(context, remoteViews);
+       //     pushWidgetUpdate(context, remoteViews);
             return remoteViews;
 
         }
