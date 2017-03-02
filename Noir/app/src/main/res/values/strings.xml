@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Noir</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+
+    <!--Extras-->
+    <string name="heart">\u2764</string>
+
+    <string name="msg_unknown_error">Sorry! Unknown error occurred.</string>
+    <string name="msg_wall_fetch_error">Sorry! Unable to fetch wallpaper(s). Verify app settings or device doesn\'t have internet connection.</string>
+
+     <string name="application_detail">
+        Palette shows the prominent colors of the image with the additional functionality of using the images for various purposes such as setting a wallpaper.
+    </string>
+    <string name="recyclerView">RecyclerView</string>
+    <string name="recyclerview_link">https://github.com/googlesamples/android-RecyclerView</string>
+    <string name="palette">Palette</string>
+    <string name="palette_link"></string>
+
+    <string name="volley">Volley</string>
+    <string name="volley_link">https://github.com/mcxiaoke/android-volley</string>
+    <string name="bottom_bar">BottomBar</string>
+    <string name="bottom_bar_link">https://github.com/roughike/BottomBar</string>
+    <string name="material_ripple">material-ripple</string>
+    <string name="material_ripple_link">https://github.com/balysv/material-ripple</string>
+    <string name="ink_page_indicator">InkPageIndicator</string>
+    <string name="ink_page_indicator_link">https://github.com/DavidPacioianu/InkPageIndicator</string>
+    <string name="card_view">CardView</string>
+    <string name="card_view_link"></string>
+    <string name="facebook_app_id">797376770401902</string>
+    <string name="hi"> Hi, </string>
+    <string-array name="navigation_options_logged_in">
+        <item>Logout</item>
+    </string-array>
+    <string-array name="navigation_options_guest">
+        <item>Login</item>
+    </string-array>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+</resources>
