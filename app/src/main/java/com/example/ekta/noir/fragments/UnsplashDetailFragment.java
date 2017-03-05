@@ -14,6 +14,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -340,22 +341,23 @@ imageDownload.setOnClickListener(this);
 
                     Snackbar.make(activity.findViewById(android.R.id.content), "Removed", Snackbar.LENGTH_LONG).show();
                 } else {
+//                    ContentValues values = new ContentValues();
+//                    values.put(IMAGE_ID, unsplashId);
+//                    values.put(IMAGE_WIDTH, unsplashWidth);
+//                    values.put(IMAGE_HEIGHT, unsplashHeight);
+//                    values.put(IMAGE_CREATED_AT, unsplashCreatedAt);
+//                    values.put(IMAGE_COLOR, unsplashColor);
+//                    values.put(IMAGE_URLS_FULL, unsplashUrlFull);
+//                    values.put(IMAGE_URLS_REGULAR, unsplashUrlRegular);
+//                    values.put(IMAGE_USER_NAME, unsplashUser);
+//new GetContacts().execute((Object[]) null);
                     ContentValues values = new ContentValues();
-                    values.put(IMAGE_ID, unsplashId);
-                    values.put(IMAGE_WIDTH, unsplashWidth);
-                    values.put(IMAGE_HEIGHT, unsplashHeight);
-                    values.put(IMAGE_CREATED_AT, unsplashCreatedAt);
-                    values.put(IMAGE_COLOR, unsplashColor);
-                    values.put(IMAGE_URLS_FULL, unsplashUrlFull);
-                    values.put(IMAGE_URLS_REGULAR, unsplashUrlRegular);
-                    values.put(IMAGE_USER_NAME, unsplashUser);
-
+                   new AsyncClass().execute();
                     imageLike.startAnimation(animZoomOut);
                     imageLikeBorder.startAnimation(animZoomIn);
 
                     imageLike.setVisibility(View.VISIBLE);
                     imageLikeBorder.setVisibility(View.GONE);
-                    activity.getContentResolver().insert(PhotosProvider.BASE_CONTENT_URI, values);
                     Snackbar.make(activity.findViewById(android.R.id.content), "Liked " + getResources().getString(R.string.heart), Snackbar.LENGTH_LONG).show();
                 }
                 break;
@@ -582,6 +584,27 @@ imageDownload.setOnClickListener(this);
             } else {
                 return true;
             }
+        }
+    }
+
+    class AsyncClass extends AsyncTask<Void,Void,Void>
+    {
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            ContentValues values = new ContentValues();
+            values.put(IMAGE_ID, unsplashId);
+            values.put(IMAGE_WIDTH, unsplashWidth);
+            values.put(IMAGE_HEIGHT, unsplashHeight);
+            values.put(IMAGE_CREATED_AT, unsplashCreatedAt);
+            values.put(IMAGE_COLOR, unsplashColor);
+            values.put(IMAGE_URLS_FULL, unsplashUrlFull);
+            values.put(IMAGE_URLS_REGULAR, unsplashUrlRegular);
+            values.put(IMAGE_USER_NAME, unsplashUser);
+            activity.getContentResolver().insert(PhotosProvider.BASE_CONTENT_URI, values);
+
+            return null;
+
         }
     }
 }
