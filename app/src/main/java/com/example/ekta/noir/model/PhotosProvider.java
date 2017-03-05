@@ -2,6 +2,7 @@ package com.example.ekta.noir.model;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
@@ -30,24 +31,24 @@ public class PhotosProvider extends ContentProvider {
         return false;
     }
 
-//    @Nullable
-//    @Override
-//    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-//        SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
-//        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
-//        queryBuilder.setTables(UnsplashDbHelper.UNSPLASH_TABLE);
-//        queryBuilder.setProjectionMap(PROJECTION_MAP);
+    @Nullable
+    @Override
+    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+        SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
+        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+        queryBuilder.setTables(UnsplashDbHelper.UNSPLASH_TABLE);
+        queryBuilder.setProjectionMap(PROJECTION_MAP);
+
+        Cursor cursor = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
+        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+        Log.v("content Uri",String.valueOf(cursor.getCount()));
+        return cursor;
+    }
+//public Cursor query(Context context,Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
 //
-//        Cursor cursor = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
-//        cursor.setNotificationUri(getContext().getContentResolver(), uri);
-//        Log.v("content Uri",String.valueOf(cursor.getCount()));
-//        return cursor;
-//    }
-public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-
-        return mDatabaseHelper.getAllPhotosFromDatabaseNew();
-
-}
+//        return mDatabaseHelper.getAllPhotosFromDatabaseNew();
+//
+//}
     @Nullable
     @Override
     public String getType(Uri uri) {

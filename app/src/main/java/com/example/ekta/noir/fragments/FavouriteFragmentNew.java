@@ -76,8 +76,8 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
         // Required empty public constructor
     }
 
-    public static FavouriteFragmentNew newInstance(String param1, String param2) {
-        FavouriteFragmentNew fragment = new FavouriteFragmentNew();
+    public static FavouriteFragment newInstance(String param1, String param2) {
+        FavouriteFragment fragment = new FavouriteFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -105,7 +105,7 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
                              Bundle savedInstanceState) {
         Fresco.initialize(getActivity());
         View view;
-        view = inflater.inflate(R.layout.fragment_favourite_new, container, false);
+        view = inflater.inflate(R.layout.fragment_favourite, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rvFavouriteNew);
         mLinearLayoutManager = new LinearLayoutManager(activity);
@@ -141,7 +141,7 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
 //                }
 //            });
 
-//            getPhotos();
+            getPhotos();
 
 //            mRecyclerView.setLayoutManager(gridLayoutManager);
    //        mRecyclerView.setAdapter(mFavouriteAdapter);
@@ -169,7 +169,7 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
         super.setUserVisibleHint(isVisibleToUser);
         // Make sure that we are currently visible
         if (this.isVisible()) {
-            //getPhotos();
+            getPhotos();
             mFavouriteAdapterNew.notifyDataSetChanged();
         }
         if (!isVisibleToUser) {
@@ -180,7 +180,7 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         Uri uri= PhotosProvider.BASE_CONTENT_URI;
-        return new CursorLoader(getActivity(), uri, null, null, null, null);
+        return new CursorLoader(getActivity(),null,null,null,null,null);
 
     }
 
