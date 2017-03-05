@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.util.HashMap;
 
@@ -29,19 +30,24 @@ public class PhotosProvider extends ContentProvider {
         return false;
     }
 
-    @Nullable
-    @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
-        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
-        queryBuilder.setTables(UnsplashDbHelper.UNSPLASH_TABLE);
-        queryBuilder.setProjectionMap(PROJECTION_MAP);
+//    @Nullable
+//    @Override
+//    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+//        SQLiteDatabase db = mDatabaseHelper.getWritableDatabase();
+//        SQLiteQueryBuilder queryBuilder = new SQLiteQueryBuilder();
+//        queryBuilder.setTables(UnsplashDbHelper.UNSPLASH_TABLE);
+//        queryBuilder.setProjectionMap(PROJECTION_MAP);
+//
+//        Cursor cursor = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
+//        cursor.setNotificationUri(getContext().getContentResolver(), uri);
+//        Log.v("content Uri",String.valueOf(cursor.getCount()));
+//        return cursor;
+//    }
+public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
 
-        Cursor cursor = queryBuilder.query(db, projection, selection, selectionArgs, null, null, sortOrder);
-        cursor.setNotificationUri(getContext().getContentResolver(), uri);
-        return cursor;
-    }
+        return mDatabaseHelper.getAllPhotosFromDatabaseNew();
 
+}
     @Nullable
     @Override
     public String getType(Uri uri) {

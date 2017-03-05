@@ -28,6 +28,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.ekta.noir.R;
 import com.example.ekta.noir.adapters.DrawerListAdapter;
 import com.example.ekta.noir.fragments.FavouriteFragment;
+import com.example.ekta.noir.fragments.FavouriteFragmentNew;
 import com.example.ekta.noir.fragments.ImageFragment;
 import com.example.ekta.noir.fragments.UnsplashFragment;
 import com.example.ekta.noir.utils.Constants;
@@ -224,7 +225,9 @@ public class MainActivity extends BaseActivity {
                     break;
 
                 case FAVOURITE:
-                    fragment = FavouriteFragment.newInstance("", "");
+//                    fragment = FavouriteFragment.newInstance("", "");
+                    fragment = FavouriteFragmentNew.newInstance("", "");
+
                     break;
             }
             return fragment;

@@ -27,7 +27,10 @@ public class UnsplashData implements Serializable {
         this.categoryTitle = categoryTitle;
         this.username = username;
     }
-
+public UnsplashData(String id)
+{
+    this.id=id;
+}
     public UnsplashData(String id, int width, int height, String createdAt, String color, String urlFull, String urlRegular, String username){
         this.id = id;
         this.width = width;

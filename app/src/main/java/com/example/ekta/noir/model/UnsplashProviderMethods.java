@@ -14,7 +14,14 @@ public class UnsplashProviderMethods {
 
     public static boolean isPhotoInDatabase(Activity activity, String id){
 
-        ArrayList<UnsplashData> list = new ArrayList<>(UnsplashProviderMethods.getPhotoList(activity.getApplicationContext()));
+//        ArrayList<UnsplashData> list = new ArrayList<>(UnsplashProviderMethods.getPhotoList(activity.getApplicationContext()));
+//        for(UnsplashData listItem : list){
+//            if(listItem.getId().equals(id)){
+//                return true;
+//            }
+//        }
+//        return false;
+        ArrayList<UnsplashData> list = new ArrayList<>(UnsplashProviderMethods.getPhotoListNew(activity.getApplicationContext()));
         for(UnsplashData listItem : list){
             if(listItem.getId().equals(id)){
                 return true;
@@ -42,6 +49,27 @@ public class UnsplashProviderMethods {
                             c.getString(c.getColumnIndex(IMAGE_URLS_FULL)),
                             c.getString(c.getColumnIndex(IMAGE_URLS_REGULAR)),
                             c.getString(c.getColumnIndex(IMAGE_USER_NAME))
+                    );
+                    photoList.add(photo);
+                } while (c.moveToNext());
+            }
+            c.close();
+        }
+        return photoList;
+    }
+    public static ArrayList<UnsplashData> getPhotoListNew(Context context){
+
+        ArrayList<UnsplashData> photoList = new ArrayList<>();
+        Uri contentUri = PhotosProvider.BASE_CONTENT_URI;
+        Cursor c = context.getContentResolver().query(contentUri, null, null, null, null);
+
+        if(c != null) {
+            if (c.moveToFirst()) {
+                do {
+
+                    UnsplashData photo = new UnsplashData(
+                            c.getString(c.getColumnIndex(IMAGE_ID))
+
                     );
                     photoList.add(photo);
                 } while (c.moveToNext());

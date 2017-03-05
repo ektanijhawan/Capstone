@@ -26,9 +26,10 @@ public class UnsplashDbHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
     public static final String DATABASE_NAME = "unsplash_database";
     public static final String UNSPLASH_TABLE = "unsplash_details";
-
+  public SQLiteDatabase sqLiteDatabase;
     public UnsplashDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.sqLiteDatabase=getWritableDatabase();
     }
 
     @Override
@@ -52,7 +53,11 @@ public class UnsplashDbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + UNSPLASH_TABLE);
         onCreate(db);
     }
-
+    public Cursor getAllPhotosFromDatabaseNew(){
+        return sqLiteDatabase.query(UNSPLASH_TABLE, new String[] { IMAGE_ID } ,
+                null, null, null, null,
+                null );
+    }
     //METHODS
     public void insertPhotos(UnsplashData photo){
 
