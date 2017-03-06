@@ -8,6 +8,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static com.example.ekta.noir.model.Endpoints.CLIENT_ID;
+import static com.example.ekta.noir.model.Endpoints.PER_PAGE;
 import static com.example.ekta.noir.model.Endpoints.PHOTOS_URL;
 import static com.example.ekta.noir.model.ResponseKeys.IMAGE_COLOR;
 import static com.example.ekta.noir.model.ResponseKeys.IMAGE_CREATED_AT;
@@ -111,20 +114,12 @@ public class UnsplashFragment extends Fragment {
         mRecyclerView = (RecyclerView)view.findViewById(R.id.rvUnsplash);
         pbLoader = (ProgressBar)view.findViewById(R.id.pbLoader);
 
-      //  if((getResources().getInteger(R.integer.screen) == 1)){
             if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)){
                 gridLayoutManager = new GridLayoutManager(activity, 2);
             }else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
                 gridLayoutManager = new GridLayoutManager(activity, 1);
             }
-     /*   }else if((getResources().getInteger(R.integer.screen) == 2) || (getResources().getInteger(R.integer.screen) == 3)){
-            if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)){
-                gridLayoutManager = new GridLayoutManager(activity, 3);
-            }else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-                gridLayoutManager = new GridLayoutManager(activity, 2);
-            }
-        }
-        */
+
 
         mUnsplashAdapter = new UnsplashAdapter(activity, new UnsplashAdapter.UnsplashAdapterOnClickHandler(){
             @Override
@@ -144,8 +139,8 @@ public class UnsplashFragment extends Fragment {
 
 
         String url;
-        url = PHOTOS_URL;
-
+        url = PHOTOS_URL + "?page=1" +PER_PAGE+CLIENT_ID;
+        Log.v("url sent",url);
         sendJSONRequest(url);
         setUpRecyclerView(mRecyclerView);
         return view;
@@ -231,15 +226,9 @@ public class UnsplashFragment extends Fragment {
                     }
                 }
                 if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)){
-//                    String url = null;
-//                    if(i == 0) {
-//                        url = PHOTOS_URL + "&page=" + String.valueOf(pageCount) + ORDER_BY;
-//                    }else if(i == 1){
-//                        url = PHOTOS_URL + "&page=" + String.valueOf(pageCount);
-//                    }else{
-//                        url = PHOTOS_URL + "&page=" + String.valueOf(pageCount);
-//                    }
-                    String url = PHOTOS_URL + "&page=" + String.valueOf(pageCount);
+
+                    String url = PHOTOS_URL + "?page=" + String.valueOf(pageCount) +PER_PAGE+CLIENT_ID;
+                    Log.v("url sent",url);
 
                     sendJSONRequest(url);
                     loading = true;

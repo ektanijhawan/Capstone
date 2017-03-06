@@ -18,7 +18,6 @@
             android:id="@+id/tvImageName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prithvi Bhola"
             android:textSize="24dp"
             android:textColor="#FFF"
             android:fontFamily="monospace"
