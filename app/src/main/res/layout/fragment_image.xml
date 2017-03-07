@@ -20,7 +20,8 @@
             android:textColor="@color/colorWhite"
             android:textSize="21dp"
             android:fontFamily="sans-serif-smallcaps"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:nextFocusForward="@+id/btnPhoto"/>
 
         <Button
             android:id="@+id/btnPhoto"
@@ -34,7 +35,8 @@
             android:onClick="selectImage"
             android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/tvDetail"/>
+            android:layout_below="@+id/tvDetail"
+            android:nextFocusForward="@+id/btnGallery"/>
 
         <Button
             android:id="@+id/btnGallery"

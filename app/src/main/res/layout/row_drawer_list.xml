@@ -14,7 +14,7 @@
         android:id="@+id/iv_drawer_list_item"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
         android:contentDescription="@string/this_is_the_image_identifying_a_row_in_left_drawer"/>
 
     <TextView
