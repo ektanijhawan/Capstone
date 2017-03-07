@@ -148,7 +148,7 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         Uri uri = PhotosProvider.BASE_CONTENT_URI;
-        return new CursorLoader(getActivity(), null, null, null, null, null);
+        return new CursorLoader(getActivity(), PhotosProvider.BASE_CONTENT_URI, null, null, null, null);
 
     }
 
