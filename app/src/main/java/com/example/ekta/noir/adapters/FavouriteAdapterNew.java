@@ -123,7 +123,17 @@ public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        clickHandler.onClick(unsplashList.get(getAdapterPosition()), this);
+//        clickHandler.onClick(unsplashList.get(getAdapterPosition()), this);
+        UnsplashData data= new UnsplashData();
+        data.setId(dataCursor.getString(dataCursor.getColumnIndex(ResponseKeys.IMAGE_ID)));
+        data.setHeight(dataCursor.getInt(dataCursor.getColumnIndex(ResponseKeys.IMAGE_HEIGHT)));
+        data.setWidth(dataCursor.getInt(dataCursor.getColumnIndex(ResponseKeys.IMAGE_WIDTH)));
+        data.setCreatedAt(dataCursor.getString(dataCursor.getColumnIndex(ResponseKeys.IMAGE_CREATED_AT)));
+        data.setColor(dataCursor.getString(dataCursor.getColumnIndex(ResponseKeys.IMAGE_COLOR)));
+        data.setUrlFull(dataCursor.getString(dataCursor.getColumnIndex(ResponseKeys.IMAGE_URLS_FULL)));
+        data.setUrlRegular(dataCursor.getString(dataCursor.getColumnIndex(ResponseKeys.IMAGE_URLS_REGULAR)));
+        data.setUsername(dataCursor.getString(dataCursor.getColumnIndex(ResponseKeys.IMAGE_USER_NAME)));
+        clickHandler.onClick(data,this);
     }
 }
 
