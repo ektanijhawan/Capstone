@@ -41,5 +41,35 @@
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="choose_from_library">Choose from library</string>
+    <string name="take_photo">Take photo</string>
+    <string name="choose_option_to_see_the_color_palatte">Choose option to see the color palatte</string>
+    <string name="this_is_the_liked_image_present_in_app_s_widget">This is the liked image present in app\'s widget</string>
+    <string name="this_is_the_image_identifying_a_row_in_left_drawer">This is the image identifying a row in left drawer</string>
+    <string name="tap_this_for_seeing_set_of_images_provided">Tap this for seeing set of images provided</string>
+    <string name="this_is_the_image_chosen_by_the_user">This is the image chosen by the user</string>
+    <string name="press_this_for_going_back">Press this for going back</string>
+    <string name="tap_this_to_see_set_of_images_provided">Tap this to see set of images provided</string>
+    <string name="press_this_to_share_image">Press this to share image</string>
+    <string name="press_this_tab_for_choosing_image_on_your_own">Press this tab for choosing image on your own</string>
+    <string name="this_is_like_border">This is like border</string>
+    <string name="press_this_to_like_or_unlike_the_image">Press this to like or unlike the image</string>
+    <string name="press_to_download_the_image">Press to download the image</string>
+    <string name="tab_this_tab_to_see_the_liked_images">Tab this tab to see the liked images</string>
+    <string name="press_this_to_set_image_as_the_wallpaper">Press this to set image as the wallpaper</string>
+    <string name="wallpaper">Wallpaper</string>
+    <string name="turn_on_the_button_to_set_the_photos_as_your_device_wallpaper">Turn on the button to set the photos as your device wallpaper</string>
+    <string name="wallpaper_quality">Wallpaper Quality</string>
+    <string name="set_full_quality_image_as_your_device_wallpaper_recommended_over_high_speed_data_connection">Set full quality image as your device wallpaper. Recommended over high speed data connection.</string>
+    <string name="colors">Colors</string>
+    <string name="show_only_major_colors_from_image">Show only major colors from image.</string>
+    <string name="fghfgg">#fghfgg</string>
+    <string name="_20">20</string>
+    <string name="downloading">Downloading...</string>
+    <string name="june_5_2016">June 5, 2016</string>
+    <string name="library_name">Library Name</string>
+    <string name="website">WEBSITE</string>
+    <string name="regular_quality_image">Regular Quality Image</string>
+    <string name="high_quality_image">High Quality Image</string>
 
 </resources>

@@ -76,8 +76,8 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
         // Required empty public constructor
     }
 
-    public static FavouriteFragment newInstance(String param1, String param2) {
-        FavouriteFragment fragment = new FavouriteFragment();
+    public static FavouriteFragmentNew newInstance(String param1, String param2) {
+        FavouriteFragmentNew fragment = new FavouriteFragmentNew();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -105,60 +105,28 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
                              Bundle savedInstanceState) {
         Fresco.initialize(getActivity());
         View view;
-        view = inflater.inflate(R.layout.fragment_favourite, container, false);
+        view = inflater.inflate(R.layout.fragment_favourite_new, container, false);
 
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rvFavouriteNew);
         mLinearLayoutManager = new LinearLayoutManager(activity);
         getActivity().getSupportLoaderManager().initLoader(1, null, this);
-        // if((getResources().getInteger(R.integer.screen) == 1)){
         if ((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)) {
             gridLayoutManager = new GridLayoutManager(activity, 2);
         } else if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             gridLayoutManager = new GridLayoutManager(activity, 1);
-     /*       }
-        }else if((getResources().getInteger(R.integer.screen) == 2) || (getResources().getInteger(R.integer.screen) == 3)){
-            if((getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE)){
-                gridLayoutManager = new GridLayoutManager(activity, 3);
-            }else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-                gridLayoutManager = new GridLayoutManager(activity, 2);
-            }
         }
-        */
 
-//            mFavouriteAdapter = new FavouriteAdapter(activity, new FavouriteAdapter.FavouriteAdapterOnClickHandler() {
-//                @Override
-//                public void onClick(UnsplashData unsplashData, RecyclerView.ViewHolder vh) {
-//
-//                    Bundle bundle = new Bundle();
-//                    Fragment unsplashDetail = new UnsplashDetailFragment();
-//                    bundle.putSerializable("unsplashData", unsplashData);
-//                    unsplashDetail.setArguments(bundle);
-//                    getActivity().getSupportFragmentManager().beginTransaction()
-//                            .setCustomAnimations(R.anim.slide_down, R.anim.slide_down, R.anim.slide_down, R.anim.slide_down)
-//                            .replace(R.id.flDetailUnsplash, unsplashDetail)
-//                            .addToBackStack(null)
-//                            .commit();
-//                }
-//            });
 
-            getPhotos();
-
-//            mRecyclerView.setLayoutManager(gridLayoutManager);
-   //        mRecyclerView.setAdapter(mFavouriteAdapter);
-//            mFavouriteAdapter.setAppList(unsplashList);
-//            mFavouriteAdapter.notifyDataSetChanged();
-
-        }
         return view;
 
     }
 
 
-    private void getPhotos(){
+    private void getPhotos() {
 
         ArrayList<UnsplashData> list = new ArrayList<>(UnsplashProviderMethods.getPhotoList(getActivity().getApplicationContext()));
         unsplashList.clear();
-        for(UnsplashData photo : list){
+        for (UnsplashData photo : list) {
             unsplashList.add(photo);
         }
         Collections.reverse(unsplashList);
@@ -179,8 +147,8 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        Uri uri= PhotosProvider.BASE_CONTENT_URI;
-        return new CursorLoader(getActivity(),null,null,null,null,null);
+        Uri uri = PhotosProvider.BASE_CONTENT_URI;
+        return new CursorLoader(getActivity(), null, null, null, null, null);
 
     }
 
@@ -188,20 +156,20 @@ public class FavouriteFragmentNew extends Fragment implements LoaderManager.Load
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         data.moveToFirst();
         mFavouriteAdapterNew = new FavouriteAdapterNew(getActivity(), data, new FavouriteAdapterNew.FavouriteAdapterNewOnClickHandler() {
-                @Override
-                public void onClick(UnsplashData unsplashData, RecyclerView.ViewHolder vh) {
+            @Override
+            public void onClick(UnsplashData unsplashData, RecyclerView.ViewHolder vh) {
 
-                    Bundle bundle = new Bundle();
-                    Fragment unsplashDetail = new UnsplashDetailFragment();
-                    bundle.putSerializable("unsplashData", unsplashData);
-                    unsplashDetail.setArguments(bundle);
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .setCustomAnimations(R.anim.slide_down, R.anim.slide_down, R.anim.slide_down, R.anim.slide_down)
-                            .replace(R.id.flDetailUnsplash, unsplashDetail)
-                            .addToBackStack(null)
-                            .commit();
-                }
-            });
+                Bundle bundle = new Bundle();
+                Fragment unsplashDetail = new UnsplashDetailFragment();
+                bundle.putSerializable("unsplashData", unsplashData);
+                unsplashDetail.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.slide_down, R.anim.slide_down, R.anim.slide_down, R.anim.slide_down)
+                        .replace(R.id.flDetailUnsplash, unsplashDetail)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.setAdapter(mFavouriteAdapterNew);
         mRecyclerView.setAdapter(mFavouriteAdapterNew);

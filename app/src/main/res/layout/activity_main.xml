@@ -54,7 +54,8 @@
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="20dp"
-                    android:tint="@color/tabIcons"/>
+                    android:tint="@color/tabIcons"
+                    android:contentDescription="@string/tap_this_for_seeing_set_of_images_provided"/>
 
             </RelativeLayout>
         </com.balysv.materialripple.MaterialRippleLayout>
@@ -81,7 +82,8 @@
                     android:src="@drawable/ic_whatshot_white_24dp"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
-                    android:tint="@color/tabIcons"/>
+                    android:tint="@color/tabIcons"
+                    android:contentDescription="@string/press_this_tab_for_choosing_image_on_your_own"/>
             </RelativeLayout>
         </com.balysv.materialripple.MaterialRippleLayout>
 
@@ -106,7 +108,8 @@
                     android:src="@drawable/ic_favourite_white_24dp"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
-                    android:tintMode="@color/tabIcons"/>
+                    android:tintMode="@color/tabIcons"
+                    android:contentDescription="@string/tab_this_tab_to_see_the_liked_images"/>
 
             </RelativeLayout>
         </com.balysv.materialripple.MaterialRippleLayout>

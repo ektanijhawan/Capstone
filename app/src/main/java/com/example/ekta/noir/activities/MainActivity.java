@@ -27,7 +27,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.ekta.noir.R;
 import com.example.ekta.noir.adapters.DrawerListAdapter;
-import com.example.ekta.noir.fragments.FavouriteFragment;
 import com.example.ekta.noir.fragments.FavouriteFragmentNew;
 import com.example.ekta.noir.fragments.ImageFragment;
 import com.example.ekta.noir.fragments.UnsplashFragment;

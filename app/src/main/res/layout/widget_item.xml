@@ -4,4 +4,5 @@
     android:id="@+id/iv_widget"
     android:layout_width="200dp"
     android:layout_height="200dp"
+    android:contentDescription="@string/this_is_the_liked_image_present_in_app_s_widget"
      />

@@ -29,7 +29,7 @@
             android:id="@+id/tvImageCreated"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="June 5, 2016"
+            android:text="@string/june_5_2016"
             android:textSize="15dp"
             android:textColor="#FFF"
             android:fontFamily="monospace"

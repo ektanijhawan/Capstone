@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/regular"
-        android:title="Regular Quality Image"
+        android:title="@string/regular_quality_image"
         android:icon="@drawable/ic_grain_black_24dp"/>
 
     <item
         android:id="@+id/full"
-        android:title="High Quality Image"
+        android:title="@string/high_quality_image"
         android:icon="@drawable/ic_landscape_white_24dp"/>
 </menu>

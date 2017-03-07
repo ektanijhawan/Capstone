@@ -63,7 +63,8 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="10dp"
                 android:padding="3dp"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin"
+                android:contentDescription="@string/press_this_for_going_back"/>
 
             <ImageView
                 android:id="@+id/ivShare"
@@ -74,7 +75,8 @@
                 android:layout_marginRight="12dp"
                 android:layout_marginTop="10dp"
                 android:padding="3dp"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin"
+                android:contentDescription="@string/press_this_to_share_image"/>
 
             <ImageView
                 android:id="@+id/ivLikeBorder"
@@ -84,7 +86,8 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:layout_gravity="bottom|right"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin"
+                android:contentDescription="@string/this_is_like_border"/>
 
             <ImageView
                 android:id="@+id/ivLike"
@@ -94,7 +97,8 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:layout_gravity="bottom|right"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin"
+                android:contentDescription="@string/press_this_to_like_or_unlike_the_image"/>
 
             <ImageView
                 android:id="@+id/ivDownload"
@@ -105,7 +109,8 @@
                 android:layout_marginBottom="10dp"
                 app:layout_collapseMode="pin"
                 android:src="@drawable/ic_file_download_white_24dp"
-                android:onClick="onClick"/>
+                android:onClick="onClick"
+                android:contentDescription="@string/press_to_download_the_image"/>
 
             <ImageView
                 android:id="@+id/ivWallpaper"
@@ -115,7 +120,8 @@
                 android:layout_marginRight="100dp"
                 android:layout_marginBottom="10dp"
                 app:layout_collapseMode="pin"
-                android:src="@drawable/ic_wallpaper_white_24dp"/>
+                android:src="@drawable/ic_wallpaper_white_24dp"
+                android:contentDescription="@string/press_this_to_set_image_as_the_wallpaper"/>
 
             <ProgressBar
                 android:id="@+id/pbWallpaper"
@@ -131,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|right"
-                android:text="Downloading..."
+                android:text="@string/downloading"
                 android:fontFamily="sans-serif-smallcaps"
                 android:textColor="@color/colorWhite"
                 android:layout_marginRight="100dp"
