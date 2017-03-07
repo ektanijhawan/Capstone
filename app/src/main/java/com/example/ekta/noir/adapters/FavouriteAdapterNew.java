@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +72,7 @@ public class FavouriteAdapterNew extends RecyclerView.Adapter<FavouriteAdapterNe
 //            UnsplashData currentUnsplash = unsplashList.get(position);
             dataCursor.moveToPosition(position);
 
-            String photo = dataCursor.getString(dataCursor.getColumnIndex(ResponseKeys.IMAGE_ID));
+            String photo = dataCursor.getString(dataCursor.getColumnIndex(ResponseKeys.IMAGE_URLS_REGULAR));
             if (photo != null) {
 //            imageLoader.get(photo, new ImageLoader.ImageListener() {
 //                @Override
@@ -88,6 +89,7 @@ public class FavouriteAdapterNew extends RecyclerView.Adapter<FavouriteAdapterNe
 //                            .ic_dialog_alert));
 //            holder.imagePhoto.setImageUrl(photo, imageLoader);
                 Uri imageUri = Uri.parse(photo);
+                Log.v("imageUri",imageUri.toString());
                 holder.imagePhoto.setImageURI(imageUri);
             }
         }
