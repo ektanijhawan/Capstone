@@ -99,7 +99,7 @@ public class MainActivity extends BaseActivity {
         setDataInDrawer();
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
-        mToolbar.setTitle("Noir");
+        mToolbar.setTitle(R.string.noir);
 
         imageTabUnsplash.setColorFilter(getResources().getColor(R.color.colorWhite));
         imageTabFav.setColorFilter(getResources().getColor(R.color.tabIcons));
@@ -179,7 +179,7 @@ public class MainActivity extends BaseActivity {
             mDrawerList.setAdapter(mDrawerListAdapter);
 
             mUserProfilePicture.setImageDrawable(getResources().getDrawable(R.drawable.ic_profile));
-            mUserName.setText(" Guest");
+            mUserName.setText(R.string.guest);
             mUserEmail.setText(" ");
         } else {
             mDrawerTitles = getResources().getStringArray(R.array.navigation_options_logged_in);

@@ -71,5 +71,7 @@
     <string name="website">WEBSITE</string>
     <string name="regular_quality_image">Regular Quality Image</string>
     <string name="high_quality_image">High Quality Image</string>
+    <string name="noir">Noir</string>
+    <string name="guest"> Guest</string>
 
 </resources>
