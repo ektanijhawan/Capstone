@@ -412,7 +412,7 @@ imageDownload.setOnClickListener(this);
                             }
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(activity, "Wallpaper set failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, R.string.wallpaper_set_failed, Toast.LENGTH_SHORT).show();
                         }
                     } else if (wallQuality == 1) {
                         imageDownload.setVisibility(View.GONE);
@@ -421,7 +421,7 @@ imageDownload.setOnClickListener(this);
                         textDownloading.setVisibility(View.VISIBLE);
                         textDownloading.startAnimation(animBlink);
 
-                        Toast.makeText(activity, "Please wait.. High quality image is downloading.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(activity, R.string.high_quality_image_downloading, Toast.LENGTH_LONG).show();
 
                         if (unsplashUrlFull != null) {
                             imageLoader.get(unsplashUrlFull, new ImageLoader.ImageListener() {
@@ -490,7 +490,7 @@ imageDownload.setOnClickListener(this);
                                         switch (which) {
                                             case R.id.regular:
                                                 MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bmp, "", "");
-                                                Toast.makeText(getActivity(), "Image saved", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getActivity(), R.string.image_saved, Toast.LENGTH_SHORT).show();
                                                 break;
 
                                             case R.id.full:
@@ -522,7 +522,7 @@ imageDownload.setOnClickListener(this);
 //                                                        Toast.makeText(getActivity(), "Download failed", Toast.LENGTH_SHORT).show();
 //                                                    }
                                                             MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, "", "");
-                                                            Toast.makeText(getActivity(), "Image saved", Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(getActivity(), R.string.image_saved, Toast.LENGTH_SHORT).show();
                                                         }
                                                     }
 

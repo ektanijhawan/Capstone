@@ -73,5 +73,11 @@
     <string name="high_quality_image">High Quality Image</string>
     <string name="noir">Noir</string>
     <string name="guest"> Guest</string>
+    <string name="logged_out">logged out</string>
+    <string name="wallpaper_set_failed">Wallpaper set failed</string>
+    <string name="high_quality_image_downloading">Please wait.. High quality image is downloading.</string>
+    <string name="image_saved">Image saved</string>
+    <string name="authentication_failed">Authentication failed.</string>
+    <string name="select_image">Select image to see the color palette.</string>
 
 </resources>

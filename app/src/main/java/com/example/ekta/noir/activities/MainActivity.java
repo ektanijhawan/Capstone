@@ -301,7 +301,7 @@ public class MainActivity extends BaseActivity {
                         Utils.setUserProfileSharedPreference(getApplicationContext(), Constants.USER_EMAIL, Constants.EMPTY);
                         Utils.setUserProfileSharedPreference(getApplicationContext(), Constants.USER_PROFILE_URL, Constants.EMPTY);
                         setDataInDrawer();
-                        Toast.makeText(this, "logged out", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, R.string.logged_out, Toast.LENGTH_SHORT).show();
                     }
                     break;
 

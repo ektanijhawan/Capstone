@@ -100,7 +100,7 @@ public class ImageFragment extends Fragment {
         textDetail = (TextView) view.findViewById(R.id.tvDetail);
 
 //        typeface = Typeface.createFromAsset(getActivity().getAssets(), "fonts/roboto-mono-regular.ttf");
-        textDetail.setText("Select image to see the color palette.");
+        textDetail.setText(R.string.select_image);
   //      textDetail.setTypeface(typeface);
 
         btnPhoto.setOnClickListener(new View.OnClickListener() {
